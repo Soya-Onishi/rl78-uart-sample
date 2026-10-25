@@ -101,7 +101,7 @@ int main(void) {
     init_tau(); 
 
     while(1) {
-        static unsigned int sw_old_state = 0;
+        static unsigned int sw_old_state;
         unsigned int sw_state;
         unsigned int sw_on_edge;
 
