@@ -103,13 +103,11 @@ int main(void) {
     while(1) {
         static unsigned int sw_old_state;
         unsigned int sw_state;
-        unsigned int sw_on_edge;
 
         DI();
-        sw_state = ((P0 & 0x01) == 1);
+        sw_state = !!(P0 & 0x01);
         EI();
 
-        sw_old_state = sw_state;
         loop_count++;
 
         // on edge
@@ -125,5 +123,7 @@ int main(void) {
             IF0H |= 0x20;
             EI();
         }
+
+        sw_old_state = sw_state;
     }
 }
